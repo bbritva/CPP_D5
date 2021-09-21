@@ -12,6 +12,9 @@ At least:
 #include <string>
 #include <iostream>
 
+#define CREATE_MSG "Try to create Bureaucrat with grade "
+#define BURO_NAME "Dima"
+
 class Bureaucrat
 {
 protected:
@@ -24,12 +27,23 @@ public:
 	const int &getGrade() const;
 	void incGrade();
 	void decGrade();
+	
+	class GradeTooHighException : public std::exception
+	{
+	public:
+		const char* what() const throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+	public:
+		const char* what() const throw();
+	};
 
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(Bureaucrat &other);
 	Bureaucrat & operator=(Bureaucrat const &other);
-
-	virtual ~Bureaucrat();
+	~Bureaucrat();
 };
 
 std::ostream& operator<<(std::ostream &stream, const Bureaucrat &buddy);
