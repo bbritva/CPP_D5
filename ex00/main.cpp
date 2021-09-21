@@ -11,12 +11,12 @@ int main()
 	{
 		grade = 55;
 		std::cout << CREATE_MSG << grade << ".\n";
-		Bureaucrat dima("dima", grade);
+		Bureaucrat dima(BURO_NAME, grade);
 		std::cout << dima;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << "\n";
+		std::cerr << e.what() << "\n";
 	}
 	try
 	{
@@ -27,7 +27,7 @@ int main()
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << "\n";
+		std::cerr << e.what() << "\n";
 	}
 	try
 	{
@@ -38,7 +38,7 @@ int main()
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << "\n";
+		std::cerr << e.what() << "\n";
 	}
 	return 0;
 }
