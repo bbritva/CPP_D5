@@ -5,7 +5,7 @@ int main()
 {
 	int grade;
 	
-	grade = 56;
+	grade = 75;
 	Bureaucrat vova("vova", grade);
 	std::cout << vova;
 	try
@@ -44,5 +44,6 @@ int main()
 	
 	Form a("blank", 55, 56);
 	std::cout << a;
+	vova.signForm(a);
 	return 0;
 }

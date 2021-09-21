@@ -11,9 +11,12 @@ At least:
 
 #include <string>
 #include <iostream>
+#include "Form.hpp"
 
 #define CREATE_MSG "Try to create Bureaucrat with grade "
 #define BURO_NAME "Dima"
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +31,13 @@ public:
 	void incGrade();
 	void decGrade();
 	
+	Bureaucrat(std::string name, int grade);
+	Bureaucrat(Bureaucrat &other);
+	Bureaucrat & operator=(Bureaucrat const &other);
+	~Bureaucrat();
+	
+	void signForm(Form &form);
+	
 	class GradeTooHighException : public std::exception
 	{
 	public:
@@ -39,11 +49,6 @@ public:
 	public:
 		const char* what() const throw();
 	};
-
-	Bureaucrat(std::string name, int grade);
-	Bureaucrat(Bureaucrat &other);
-	Bureaucrat & operator=(Bureaucrat const &other);
-	~Bureaucrat();
 };
 
 std::ostream& operator<<(std::ostream &stream, const Bureaucrat &buddy);

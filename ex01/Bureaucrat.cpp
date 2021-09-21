@@ -56,6 +56,19 @@ void Bureaucrat::decGrade()
 	}
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Form successfully signed\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+}
+
 std::ostream& operator<<(std::ostream &stream, const Bureaucrat &buddy)
 {
 	stream << buddy.getName() << " has " << buddy.getGrade() << " grade.\n";

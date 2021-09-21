@@ -53,6 +53,14 @@ bool Form::isSigned() const
 	return _isSigned;
 }
 
+void Form::beSigned(const Bureaucrat &buddy)
+{
+	if (buddy.getGrade() > _gradeToSign)
+		throw GradeTooLowException();
+	_isSigned = true;
+	std::cout << "Form \"" << _name << "\" has been signed.\n";
+}
+
 std::ostream& operator<<(std::ostream &stream, const Form &form)
 {
 	stream << "|========================|\n";
