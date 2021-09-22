@@ -14,6 +14,7 @@ At least:
 #include "Bureaucrat.hpp"
 
 #define CREATE_MSG "Try to create Bureaucrat with grade "
+#define F_CREATE_MSG "Try to create Form with grade "
 #define BURO_NAME "Dima"
 
 class Bureaucrat;

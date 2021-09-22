@@ -41,6 +41,28 @@ int main()
 	{
 		std::cerr << e.what() << "\n";
 	}
+	try
+	{
+		grade = 155;
+		std::cout << F_CREATE_MSG << grade << ".\n";
+		Form f("blank", grade, 1);
+		std::cout << f;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		grade = 55;
+		std::cout << F_CREATE_MSG << grade << ".\n";
+		Form f("blank", grade, 1);
+		std::cout << f;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
 	
 	Form a("blank", 70, 56);
 	std::cout << a;
