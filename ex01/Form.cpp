@@ -63,7 +63,7 @@ void Form::beSigned(const Bureaucrat &buddy)
 
 std::ostream& operator<<(std::ostream &stream, const Form &form)
 {
-	stream << "|========================|\n";
+	stream << "..........................\n";
 	stream << "This is a \"" << form.getName() << "\" form.\n" <<
 	"Grade to sign it = " << form.getGradeToSign() << ".\n" <<
 	"Grade to exec it = " << form.getGradeToExec() << ".\n";
@@ -71,7 +71,7 @@ std::ostream& operator<<(std::ostream &stream, const Form &form)
 		stream << "It is SIGNED.\n";
 	else
 		stream << "It is NOT SIGNED.\n";
-	stream << "|========================|\n";
+	stream << "..........................\n";
 	return stream;
 }
 

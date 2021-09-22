@@ -14,7 +14,12 @@ At least:
 #include "Form.hpp"
 
 #define CREATE_MSG "Try to create Bureaucrat with grade "
+#define INC_MSG "Try to inc Bureaucrat with grade "
+#define DEC_MSG "Try to dec Bureaucrat with grade "
+#define SIGN_MSG "Try to sign form"
 #define BURO_NAME "Dima"
+#define BEGIN 	"|========================|\n"
+#define END 	"|________________________|\n\n"
 
 class Form;
 
