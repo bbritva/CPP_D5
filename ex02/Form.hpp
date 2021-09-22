@@ -19,24 +19,25 @@ class Bureaucrat;
 
 class Form
 {
-private:
+protected:
 	const std::string	_name;
 	const int			_gradeToSign;
 	const int			_gradeToExec;
 	bool 				_isSigned;
-	Form();
 	
 public:
-	const std::string &getName() const;
-	int getGradeToSign() const;
-	int getGradeToExec() const;
-	bool isSigned() const;
+	virtual const std::string &getName() const;
+	virtual int getGradeToSign() const;
+	virtual int getGradeToExec() const;
+	virtual bool isSigned() const;
 	
+	Form();
 	Form(const std::string &name, int gradeToSign = 0,
 		 int gradeToExec = 0);
 	Form(Form &other);
 	Form & operator=(Form const &other);
 	~Form();
+	virtual void execute(Bureaucrat const & executor) = 0;
 	
 	void beSigned(Bureaucrat const &buddy);
 	

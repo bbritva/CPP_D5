@@ -1,16 +1,5 @@
 #include "Form.hpp"
 
-Form::Form() : _name("Blank"),	_gradeToSign(0),
-									_gradeToExec(0),
-									_isSigned(false)
-{}
-
-Form::Form(Form &other):	_name(other._name),
-							_gradeToSign(other._gradeToSign),
-							_gradeToExec(other._gradeToExec),
-							_isSigned(other._isSigned)
-{}
-
 Form::Form(const std::string &name, int gradeToSign, int gradeToExec) :
 							_name(name),
 							_gradeToSign(gradeToSign),
