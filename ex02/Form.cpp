@@ -73,3 +73,8 @@ const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("exception: Grade too low =(");
 }
+
+const char *Form::UnsignedFormException::what() const throw()
+{
+	return ("exception: Form unsigned =(");
+}

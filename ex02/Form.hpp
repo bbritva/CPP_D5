@@ -31,10 +31,10 @@ public:
 	virtual int getGradeToExec() const;
 	virtual bool isSigned() const;
 	
-	Form();
+	Form() = 0;
 	Form(const std::string &name, int gradeToSign = 0,
 		 int gradeToExec = 0);
-	Form(Form &other);
+	Form(Form &other) = 0;
 	Form & operator=(Form const &other);
 	~Form();
 	virtual void execute(Bureaucrat const & executor) = 0;
@@ -48,6 +48,12 @@ public:
 		};
 
 	class GradeTooLowException : public std::exception
+		{
+		public:
+			const char* what() const throw();
+		};
+
+	class UnsignedFormException : public std::exception
 		{
 		public:
 			const char* what() const throw();

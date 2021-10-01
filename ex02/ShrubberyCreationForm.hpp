@@ -24,7 +24,6 @@ private:
 public:
 	const std::string &getTarget() const;
 
-public:
 	ShrubberyCreationForm(const std::string &target);
 	ShrubberyCreationForm(ShrubberyCreationForm &other);
 	ShrubberyCreationForm & operator=(ShrubberyCreationForm const &other);

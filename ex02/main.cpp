@@ -101,6 +101,7 @@ int main()
 
 	Bureaucrat vova("vova", 50);
 	std::cout << vova;
+	
 //	try_create_bur(55);
 //	try_create_bur(-55);
 //	try_create_bur(155);

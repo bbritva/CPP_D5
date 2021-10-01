@@ -34,9 +34,11 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor)
 {
 	if (executor.getGrade() > _gradeToExec)
 		throw GradeTooLowException();
+	if (!isSigned())
+		throw UnsignedFormException();
 	std::ofstream out;
-	out.open(getTarget() + "_shrubbery");
-	
+	std::string ttt = "_shrubbery";
+	out.open(ttt.insert(0, this->getTarget()));
 	out << "             _{\\ _{\\{\\/}/}/}__\n"
 		   "            {/{/\\}{/{/\\}(\\}{/\\} _\n"
 		   "           {/{/\\}{/{/\\}(_)\\}{/{/\\}  _\n"
