@@ -1,5 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 //
 //void try_incdec_bur(int grade, char inc)
 //{
@@ -101,6 +104,24 @@ int main()
 
 	Bureaucrat vova("vova", 50);
 	std::cout << vova;
+	
+	std::cout << BEGIN;
+	try
+	{
+		std::cout << "Try to create ShrubberyCreationForm:\n";
+		ShrubberyCreationForm scf("blank");
+		std::cout << scf;
+		std::cout << CREATE_MSG << 55 << ".\n";
+		Bureaucrat dima(BURO_NAME, 55);
+		std::cout << dima;
+		scf.beSigned(dima);
+		scf.execute(dima);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << END;
 	
 //	try_create_bur(55);
 //	try_create_bur(-55);
