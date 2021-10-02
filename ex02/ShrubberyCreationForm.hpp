@@ -29,7 +29,7 @@ public:
 	ShrubberyCreationForm & operator=(ShrubberyCreationForm const &other);
 	~ShrubberyCreationForm();
 	
-	void execute(Bureaucrat const & executor);
+	void execute(Bureaucrat const & executor) const;
 	
 };
 

@@ -30,7 +30,7 @@ const std::string &RobotomyRequestForm::getTarget() const
 	return _target;
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor)
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	if (executor.getGrade() > _gradeToExec)
 		throw GradeTooLowException();

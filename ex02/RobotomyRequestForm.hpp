@@ -29,7 +29,7 @@ public:
 	RobotomyRequestForm & operator=(RobotomyRequestForm const &other);
 	~RobotomyRequestForm();
 	
-	void execute(Bureaucrat const & executor);
+	void execute(Bureaucrat const & executor) const;
 	
 };
 

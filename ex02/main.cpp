@@ -286,6 +286,14 @@ int main()
 	RobotomyRequestFormTest(bureaucrats);
 	PresidentialPardonFormTest(bureaucrats);
 
+	ShrubberyCreationForm scf("buddy_home");
+	bureaucrats[1]->signForm(scf);
+	std::cout << "\x1B[36mtry execute signed form by 149 grade:\n\x1B[0m";
+	bureaucrats[149]->executeForm(scf);
+	std::cout << "\x1B[36mtry execute signed form by 130 grade:\n\x1B[0m";
+	bureaucrats[130]->executeForm(scf);
+
+
 	for (int i = 0; i < 150; ++i)
 		delete bureaucrats[i];
 	return 0;

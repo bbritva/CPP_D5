@@ -30,7 +30,7 @@ const std::string &PresidentialPardonForm::getTarget() const
 	return _target;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor)
+void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
 	if (executor.getGrade() > _gradeToExec)
 		throw GradeTooLowException();
