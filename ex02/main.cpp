@@ -158,6 +158,65 @@ void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 	}
 }
 
+void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
+{
+	RobotomyRequestForm rrf("vacuum cleaner");
+	std::cout << rrf;
+	try
+	{
+		std::cout << "\x1B[36mtry sign form by 147 grade:\n\x1B[0m";
+		bureaucrats[147]->signForm(rrf);
+		if (rrf.isSigned())
+			std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry execute unsigned form:\n\x1B[0m";
+		rrf.execute(*bureaucrats[135]);
+		if (rrf.isSigned())
+			std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry sign form by 135 grade:\n\x1B[0m";
+		bureaucrats[135]->signForm(rrf);
+		std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << rrf;
+	try
+	{
+		std::cout << "\x1B[36mtry execute signed form by 145 grade:\n\x1B[0m";
+		rrf.execute(*bureaucrats[145]);
+		std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry execute signed form by 135 grade:\n\x1B[0m";
+		rrf.execute(*bureaucrats[135]);
+		std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+}
+
 int main()
 {
 

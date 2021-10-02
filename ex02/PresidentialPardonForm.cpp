@@ -1,17 +1,17 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : Form
-("PresidentialPardonForm", 72, 45)
+("PresidentialPardonForm", 25, 5)
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : Form
-("PresidentialPardonForm", 72, 45), _target(target)
+("PresidentialPardonForm", 25, 5), _target(target)
 {}
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &other) :
-			Form("PresidentialPardonForm", 72, 45),
+			Form("PresidentialPardonForm", 25, 5),
 			_target(other._target)
 {
 	this->_isSigned = other.isSigned();
@@ -36,10 +36,5 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor)
 		throw GradeTooLowException();
 	if (!isSigned())
 		throw UnsignedFormException();
-	srand(static_cast<unsigned int>(time(nullptr)));
-	if (rand() % 2)
-		std::cout << getTarget() << " has been robotomized successfully.\n";
-	else
-		std::cout << getTarget() << " robotomize FAILED.\n";
-
+	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox.\n";
 }

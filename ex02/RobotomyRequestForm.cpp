@@ -1,17 +1,17 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : Form
-("RobotomyRequestForm", 25, 5)
+("RobotomyRequestForm", 72, 45)
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : Form
-("RobotomyRequestForm", 25, 5), _target(target)
+("RobotomyRequestForm", 72, 45), _target(target)
 {}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &other) :
-			Form("RobotomyRequestForm", 25, 5),
+			Form("RobotomyRequestForm", 72, 45),
 			_target(other._target)
 {
 	this->_isSigned = other.isSigned();
@@ -36,7 +36,9 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor)
 		throw GradeTooLowException();
 	if (!isSigned())
 		throw UnsignedFormException();
-	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox.\n";
-
-
+	srand(static_cast<unsigned int>(time(nullptr)));
+	if (rand() % 2)
+		std::cout << getTarget() << " has been robotomized successfully.\n";
+	else
+		std::cout << getTarget() << " robotomize FAILED.\n";
 }
