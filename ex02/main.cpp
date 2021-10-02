@@ -216,6 +216,65 @@ void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
 	}
 }
 
+
+void PresidentialPardonFormTest(Bureaucrat *bureaucrats[150])
+{
+	PresidentialPardonForm ppf("Borodach");
+	std::cout << ppf;
+	try
+	{
+		std::cout << "\x1B[36mtry sign form by 147 grade:\n\x1B[0m";
+		bureaucrats[147]->signForm(ppf);
+		if (ppf.isSigned())
+			std::cout << "\033[92mSUCCESS!\n\x1B[0m";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry execute unsigned form:\n\x1B[0m";
+		ppf.execute(*bureaucrats[3]);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry sign form by 20 grade:\n\x1B[0m";
+		bureaucrats[20]->signForm(ppf);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << ppf;
+	try
+	{
+		std::cout << "\x1B[36mtry execute signed form by 145 grade:\n\x1B[0m";
+		ppf.execute(*bureaucrats[145]);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry execute signed form by 3 grade:\n\x1B[0m";
+		ppf.execute(*bureaucrats[3]);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+}
+
 int main()
 {
 
@@ -225,7 +284,7 @@ int main()
 										i + 1);
 	ShrubberyFormTest(bureaucrats);
 	RobotomyRequestFormTest(bureaucrats);
-//	PresidentialPardonFormTest(bureaucrats);
+	PresidentialPardonFormTest(bureaucrats);
 
 	for (int i = 0; i < 150; ++i)
 		delete bureaucrats[i];
