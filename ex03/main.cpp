@@ -3,101 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-//
-//void try_incdec_bur(int grade, char inc)
-//{
-//	std::cout << BEGIN;
-//	if (inc)
-//	{
-//		try
-//		{
-//			Bureaucrat dima(BURO_NAME, grade);
-//			std::cout << dima;
-//			try
-//			{
-//				std::cout << INC_MSG << grade << ".\n";
-//				dima.incGrade();
-//				std::cout << dima;
-//			}
-//			catch (std::exception &e)
-//			{
-//				std::cerr << e.what() << "\n";
-//			}
-//		}
-//		catch (std::exception &e)
-//		{
-//			std::cerr << e.what() << "\n";
-//		}
-//	}
-//	else
-//	{
-//		try
-//		{
-//			Bureaucrat dima(BURO_NAME, grade);
-//			std::cout << dima;
-//			try
-//			{
-//				std::cout << DEC_MSG << grade << ".\n";
-//				dima.decGrade();
-//				std::cout << dima;
-//			}
-//			catch (std::exception &e)
-//			{
-//				std::cerr << e.what() << "\n";
-//			}
-//		}
-//		catch (std::exception &e)
-//		{
-//			std::cerr << e.what() << "\n";
-//		}
-//	}
-//	std::cout << END;
-//}
-//
-//void try_create_bur(int grade)
-//{
-//	std::cout << BEGIN;
-//	try
-//	{
-//		std::cout << CREATE_MSG << grade << ".\n";
-//		Bureaucrat dima(BURO_NAME, grade);
-//		std::cout << dima;
-//	}
-//	catch (std::exception &e)
-//	{
-//		std::cerr << e.what() << "\n";
-//	}
-//	std::cout << END;
-//}
-//
-//void try_create_form(int grade)
-//{
-//	std::cout << BEGIN;
-//	try
-//	{
-//		std::cout << F_CREATE_MSG << grade << ".\n";
-//		Form f("blank", grade, 1);
-//		std::cout << f;
-//	}
-//	catch (std::exception &e)
-//	{
-//		std::cerr << e.what() << "\n";
-//	}
-//	std::cout << END;
-//}
-//
-//void try_sign_form(int gradeBur, int gradeForm)
-//{
-//	std::cout << BEGIN;
-//	std::cout << SIGN_MSG << ".\n";
-//	Bureaucrat vova("vova", gradeBur);
-//	std::cout << vova;
-//	Form a("blank", gradeForm, 56);
-//	std::cout << a;
-//	vova.signForm(a);
-//	std::cout << a;
-//	std::cout << END;
-//}
+#include "Intern.hpp"
 
 void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 {
@@ -296,5 +202,23 @@ int main()
 
 	for (int i = 0; i < 150; ++i)
 		delete bureaucrats[i];
+	try
+	{
+		Intern  someRandomIntern;
+		Form*   rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf;
+		delete rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		std::cout << *rrf;
+		delete rrf;
+		rrf = someRandomIntern.makeForm("bla bla form", "Bender");
+		std::cout << *rrf;
+		delete rrf;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
 	return 0;
 }

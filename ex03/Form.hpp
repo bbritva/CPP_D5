@@ -36,7 +36,7 @@ public:
 		 int gradeToExec = 0);
 	Form(Form &other);
 	Form & operator=(Form const &other);
-	~Form();
+	virtual ~Form();
 	virtual void execute(Bureaucrat const & executor) const = 0;
 	
 	void beSigned(Bureaucrat const &buddy);
