@@ -66,15 +66,15 @@ std::ostream& operator<<(std::ostream &stream, const Form &form)
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("exception: Grade too high =(");
+	return ("\x1B[35mexception: Grade too high =(\x1B[0m");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("exception: Grade too low =(");
+	return ("\x1B[35mexception: Grade too low =(\x1B[0m");
 }
 
 const char *Form::UnsignedFormException::what() const throw()
 {
-	return ("exception: Form unsigned =(");
+	return ("\x1B[35mexception: Form unsigned =(\x1B[0m");
 }

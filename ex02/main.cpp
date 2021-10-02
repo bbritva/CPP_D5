@@ -108,7 +108,7 @@ void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 		std::cout << "\x1B[36mtry sign form by 147 grade:\n\x1B[0m";
 		bureaucrats[147]->signForm(scf);
 		if (scf.isSigned())
-			std::cout << "SUCCESS!\n";
+			std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -119,7 +119,7 @@ void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 		std::cout << "\x1B[36mtry execute unsigned form:\n\x1B[0m";
 		scf.execute(*bureaucrats[135]);
 		if (scf.isSigned())
-			std::cout << "SUCCESS!\n";
+			std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -129,7 +129,7 @@ void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 	{
 		std::cout << "\x1B[36mtry sign form by 135 grade:\n\x1B[0m";
 		bureaucrats[135]->signForm(scf);
-		std::cout << "SUCCESS!\n";
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -140,7 +140,7 @@ void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 	{
 		std::cout << "\x1B[36mtry execute signed form by 145 grade:\n\x1B[0m";
 		scf.execute(*bureaucrats[145]);
-		std::cout << "SUCCESS!\n";
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -150,7 +150,7 @@ void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 	{
 		std::cout << "\x1B[36mtry execute signed form by 135 grade:\n\x1B[0m";
 		scf.execute(*bureaucrats[135]);
-		std::cout << "SUCCESS!\n";
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -167,7 +167,7 @@ void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
 		std::cout << "\x1B[36mtry sign form by 147 grade:\n\x1B[0m";
 		bureaucrats[147]->signForm(rrf);
 		if (rrf.isSigned())
-			std::cout << "SUCCESS!\n";
+			std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -176,9 +176,8 @@ void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
 	try
 	{
 		std::cout << "\x1B[36mtry execute unsigned form:\n\x1B[0m";
-		rrf.execute(*bureaucrats[135]);
-		if (rrf.isSigned())
-			std::cout << "SUCCESS!\n";
+		rrf.execute(*bureaucrats[40]);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -186,9 +185,9 @@ void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
 	}
 	try
 	{
-		std::cout << "\x1B[36mtry sign form by 135 grade:\n\x1B[0m";
-		bureaucrats[135]->signForm(rrf);
-		std::cout << "SUCCESS!\n";
+		std::cout << "\x1B[36mtry sign form by 70 grade:\n\x1B[0m";
+		bureaucrats[70]->signForm(rrf);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -199,7 +198,7 @@ void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
 	{
 		std::cout << "\x1B[36mtry execute signed form by 145 grade:\n\x1B[0m";
 		rrf.execute(*bureaucrats[145]);
-		std::cout << "SUCCESS!\n";
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -207,9 +206,9 @@ void RobotomyRequestFormTest(Bureaucrat *bureaucrats[150])
 	}
 	try
 	{
-		std::cout << "\x1B[36mtry execute signed form by 135 grade:\n\x1B[0m";
-		rrf.execute(*bureaucrats[135]);
-		std::cout << "SUCCESS!\n";
+		std::cout << "\x1B[36mtry execute signed form by 40 grade:\n\x1B[0m";
+		rrf.execute(*bureaucrats[40]);
+		std::cout << "\033[92mSUCCESS!\n\x1B[0m";
 	}
 	catch (std::exception &e)
 	{
@@ -225,7 +224,7 @@ int main()
 		bureaucrats[i] = new Bureaucrat("bureaucrat " + std::to_string(i + 1),
 										i + 1);
 	ShrubberyFormTest(bureaucrats);
-//	RobotomyFormTest(bureaucrats);
+	RobotomyRequestFormTest(bureaucrats);
 //	PresidentialPardonFormTest(bureaucrats);
 
 	for (int i = 0; i < 150; ++i)
