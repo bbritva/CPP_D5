@@ -99,45 +99,77 @@
 //	std::cout << END;
 //}
 
-int main()
+void ShrubberyFormTest(Bureaucrat *bureaucrats[150])
 {
-
-	Bureaucrat vova("vova", 50);
-	std::cout << vova;
-	
-	std::cout << BEGIN;
+	ShrubberyCreationForm scf("home");
+	std::cout << scf;
 	try
 	{
-		std::cout << "Try to create ShrubberyCreationForm:\n";
-		ShrubberyCreationForm scf("blank");
-		std::cout << scf;
-		std::cout << CREATE_MSG << 55 << ".\n";
-		Bureaucrat dima(BURO_NAME, 55);
-		std::cout << dima;
-		scf.beSigned(dima);
-		scf.execute(dima);
+		std::cout << "\x1B[36mtry sign form by 147 grade:\n\x1B[0m";
+		bureaucrats[147]->signForm(scf);
+		if (scf.isSigned())
+			std::cout << "SUCCESS!\n";
 	}
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << "\n";
 	}
-	std::cout << END;
-	
-//	try_create_bur(55);
-//	try_create_bur(-55);
-//	try_create_bur(155);
-//	
-//	try_incdec_bur(150, 1);
-//	try_incdec_bur(150, 0);
-//	try_incdec_bur(1, 1);
-//	try_incdec_bur(1, 0);
-//
-//	try_create_form(55);
-//	try_create_form(-55);
-//	try_create_form(155);
-//
-//	try_sign_form(50, 70);
-//	try_sign_form(70, 50);
+	try
+	{
+		std::cout << "\x1B[36mtry execute unsigned form:\n\x1B[0m";
+		scf.execute(*bureaucrats[135]);
+		if (scf.isSigned())
+			std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry sign form by 135 grade:\n\x1B[0m";
+		bureaucrats[135]->signForm(scf);
+		std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << scf;
+	try
+	{
+		std::cout << "\x1B[36mtry execute signed form by 145 grade:\n\x1B[0m";
+		scf.execute(*bureaucrats[145]);
+		std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+	try
+	{
+		std::cout << "\x1B[36mtry execute signed form by 135 grade:\n\x1B[0m";
+		scf.execute(*bureaucrats[135]);
+		std::cout << "SUCCESS!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+}
 
+int main()
+{
+
+	Bureaucrat *bureaucrats[150];
+	for (int i = 0; i < 150; ++i)
+		bureaucrats[i] = new Bureaucrat("bureaucrat " + std::to_string(i + 1),
+										i + 1);
+	ShrubberyFormTest(bureaucrats);
+//	RobotomyFormTest(bureaucrats);
+//	PresidentialPardonFormTest(bureaucrats);
+
+	for (int i = 0; i < 150; ++i)
+		delete bureaucrats[i];
 	return 0;
 }
